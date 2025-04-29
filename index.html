@@ -66,6 +66,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            text-transform: uppercase;
         }
         .btn-hero:hover {
             background: linear-gradient(90deg, #E65A50, #E6C200);
@@ -95,6 +96,14 @@
         }
         .card:hover {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .testimonial-card {
+            background-color: #1f1f1f;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            color: #e0e0e0;
+            border: 1px solid #4a5568;
         }
         nav a:hover {
             color: #FF6F61;
@@ -304,6 +313,16 @@
         </div>
     </section>
 
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="container mx-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Sobre Mí</h2>
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Anderson Marín" class="mx-auto rounded-full w-32 h-32 mb-4 border-4 border-yellow-400 shadow-lg">
+            <p class="text-lg text-gray-300 mb-4">¡Hola! Soy Anderson Marín, profesor certificado de inglés con nivel C2 y años de experiencia ayudando a estudiantes a lograr sus metas. Mi misión es que aprendas inglés conversacional de manera práctica, divertida y enfocada en resultados reales.</p>
+            <p class="text-lg text-gray-300">¿Listo para transformar tu inglés? <strong>¡Reserva tu clase gratuita y da el primer paso!</strong></p>
+        </div>
+    </section>
+
     <!-- Servicios -->
     <section id="servicios" class="container mx-auto">
         <div class="text-center mb-8">
@@ -329,7 +348,86 @@
         </div>
     </section>
 
-    <!-- Pop-up para reservar clase -->
+    <!-- Blog -->
+    <section id="blog" class="container mx-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Blog</h2>
+            <p class="text-lg text-gray-300 mb-8">Consejos, recursos y novedades para mejorar tu inglés cada semana.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-2">Cómo perder el miedo a hablar inglés</h3>
+                <p class="text-gray-300 mb-4">Descubre técnicas prácticas para ganar confianza y soltura en tus conversaciones diarias.</p>
+                <a href="#" class="text-blue-400 hover:underline">Leer más</a>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-2">Errores comunes al aprender inglés</h3>
+                <p class="text-gray-300 mb-4">Evita los tropiezos más habituales y acelera tu aprendizaje con estos consejos.</p>
+                <a href="#" class="text-blue-400 hover:underline">Leer más</a>
+            </div>
+            <div class="card">
+                <h3 class="text-xl font-semibold mb-2">Recursos gratuitos para practicar listening</h3>
+                <p class="text-gray-300 mb-4">Una selección de podcasts, vídeos y ejercicios para mejorar tu comprensión auditiva.</p>
+                <a href="#" class="text-blue-400 hover:underline">Leer más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios (solo tarjetas, sin swiper) -->
+    <section id="testimonios" class="container mx-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Testimonios</h2>
+            <p class="text-lg text-gray-300 mb-8">Lo que dicen quienes ya aprendieron conmigo:</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="testimonial-card">
+                <p class="mb-2">"Anderson me ayudó a perder el miedo a hablar inglés. Ahora tengo confianza en reuniones internacionales."</p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio 1" class="w-12 h-12 rounded-full mr-3">
+                    <span class="font-semibold">María P.</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="mb-2">"Las clases grupales son dinámicas y divertidas. Aprendí mucho más rápido de lo que esperaba."</p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Testimonio 2" class="w-12 h-12 rounded-full mr-3">
+                    <span class="font-semibold">Carlos R.</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="mb-2">"El taller de pronunciación fue clave para mejorar mi acento. ¡Recomendado 100%!"</p>
+                <div class="flex items-center">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonio 3" class="w-12 h-12 rounded-full mr-3">
+                    <span class="font-semibold">Laura G.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="container mx-auto">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Contacto</h2>
+            <p class="text-lg text-gray-300 mb-8">¿Tienes dudas? Escríbeme y te responderé lo antes posible.</p>
+        </div>
+        <form class="max-w-lg mx-auto card">
+            <div class="mb-4">
+                <label for="nombre" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-4">
+                <label for="mensaje" class="block text-gray-300 text-sm font-bold mb-2">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required></textarea>
+            </div>
+            <button type="submit" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 focus:outline-none focus:shadow-outline text-md">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- Modal de reserva (único para todos los botones) -->
     <div id="reservation-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-modal-btn"><i class="material-icons">close</i></span>
@@ -356,7 +454,7 @@
         </div>
     </div>
 
-    <!-- Pop-up para compra del producto digital -->
+    <!-- Pop-up para compra del producto digital (sin cambios) -->
     <div id="purchase-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-purchase-modal-btn"><i class="material-icons">close</i></span>
