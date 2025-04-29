@@ -2,16 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aprende Inglés Conversacional con Anderson Marín</title>
     <meta name="description" content="Aprende inglés conversacional con Anderson Marín, un experto C2. Clases online personalizadas, grupales y talleres de pronunciación. ¡Reserva tu clase gratuita hoy!" />
     <meta name="keywords" content="clases de inglés online, aprender inglés conversacional, profesor de inglés C2, inglés para niños, talleres de pronunciación" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <!-- Swiper.js para los carruseles -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para iconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -22,29 +22,14 @@
             background-color: #121212;
             color: #fff;
         }
-        .dark-mode h1,
-        .dark-mode h2,
-        .dark-mode h3 {
+        .dark-mode h1, .dark-mode h2, .dark-mode h3 {
             color: #fff;
         }
-        .dark-mode .bg-white {
-            background-color: #1f1f1f;
-        }
-        .dark-mode .text-gray-700 {
-            color: #e0e0e0;
-        }
-        .dark-mode .border-gray-200 {
-            border-color: #4a5568;
-        }
-        .dark-mode .bg-gray-100 {
-            background-color: #1f1f1f;
-        }
-
-        /* Estilo para "Anderson Marín" */
-        .google-name {
-            color: #fff;
-        }
-
+        .dark-mode .bg-white { background-color: #1f1f1f; }
+        .dark-mode .text-gray-700 { color: #e0e0e0; }
+        .dark-mode .border-gray-200 { border-color: #4a5568; }
+        .dark-mode .bg-gray-100 { background-color: #1f1f1f; }
+        .google-name { color: #fff; }
         .btn-blue {
             background-color: #4285F4;
             color: white;
@@ -60,7 +45,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transform: translateY(-2px);
         }
-
         .btn-hero {
             background: linear-gradient(90deg, #FF6F61, #FFD700);
             color: white;
@@ -89,10 +73,7 @@
             transform: skewX(-25deg);
             transition: left 0.8s ease-in-out;
         }
-        .btn-hero:hover::before {
-            left: 100%;
-        }
-
+        .btn-hero:hover::before { left: 100%; }
         .card {
             background-color: #1f1f1f;
             border-radius: 4px;
@@ -100,9 +81,7 @@
             transition: box-shadow 0.3s ease;
             padding: 2rem;
         }
-        .card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
+        .card:hover { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);}
         .testimonial-card {
             background-color: #1f1f1f;
             border-radius: 4px;
@@ -111,24 +90,9 @@
             color: #e0e0e0;
             border: 1px solid #4a5568;
         }
-        nav a:hover {
-            color: #FF6F61;
-        }
-
-        /* Estilos para anuncios */
-        .ad-banner {
-            margin: 20px auto;
-            text-align: center;
-            max-width: 728px;
-        }
-        .ad-sidebar {
-            margin-top: 20px;
-            text-align: center;
-            max-width: 160px;
-            opacity: 0.8;
-        }
-
-        /* Estilos para el menú hamburguesa */
+        nav a:hover { color: #FF6F61; }
+        .ad-banner { margin: 20px auto; text-align: center; max-width: 728px; }
+        .ad-sidebar { margin-top: 20px; text-align: center; max-width: 160px; opacity: 0.8; }
         #hamburger-btn {
             position: relative;
             width: 40px;
@@ -154,109 +118,104 @@
             position: absolute;
             transition: transform 0.3s ease;
         }
-        .hamburger-icon::before {
-            top: -8px;
-        }
-        .hamburger-icon::after {
-            top: 8px;
-        }
-        #hamburger-btn.active .hamburger-icon {
-            background-color: transparent;
-        }
-        #hamburger-btn.active .hamburger-icon::before {
-            transform: translateY(8px) rotate(45deg);
-        }
-        #hamburger-btn.active .hamburger-icon::after {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        /* Estilos para el menú móvil */
-        #mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #mobile-menu.active {
-            transform: translateX(0);
-            display: block !important;
-        }
-        #mobile-menu nav a.active {
-            color: #FF6F61;
-            font-weight: bold;
-        }
-
-        /* Estilos para el carrusel de inicio */
-        .swiper-container-hero {
-            width: 100%;
-            max-width: 1200px;
-            height: 400px;
-            margin: 0 auto;
-        }
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 8px;
-        }
-        .swiper-pagination-hero {
-            bottom: 10px !important;
-        }
-        .swiper-button-next-hero,
-        .swiper-button-prev-hero {
-            color: #fff;
-        }
-
-        /* Estilos para el pop-up */
-        #reservation-modal {
+        .hamburger-icon::before { top: -8px; }
+        .hamburger-icon::after { top: 8px; }
+        #hamburger-btn.active .hamburger-icon { background-color: transparent; }
+        #hamburger-btn.active .hamburger-icon::before { transform: translateY(8px) rotate(45deg);}
+        #hamburger-btn.active .hamburger-icon::after { transform: translateY(-8px) rotate(-45deg);}
+        #mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-in-out;}
+        #mobile-menu.active { transform: translateX(0); display: block !important;}
+        #mobile-menu nav a.active { color: #FF6F61; font-weight: bold;}
+        .swiper-container-hero { width: 100%; max-width: 1200px; height: 400px; margin: 0 auto;}
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 8px;}
+        .swiper-pagination-hero { bottom: 10px !important;}
+        .swiper-button-next-hero, .swiper-button-prev-hero { color: #fff;}
+        #reservation-modal, #purchase-modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 100;
             align-items: center;
             justify-content: center;
         }
-        #reservation-modal.active {
-            display: flex;
-        }
+        #reservation-modal.active, #purchase-modal.active { display: flex; }
         .modal-content {
-            background-color: #1f1f1f;
-            padding: 2rem;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
+            background: linear-gradient(135deg, #4285F4 0%, #FFD700 100%);
+            color: #222;
+            padding: 2.5rem 2rem 2rem 2rem;
+            border-radius: 18px;
+            width: 95%;
+            max-width: 430px;
             position: relative;
+            box-shadow: 0 6px 32px rgba(0,0,0,.35);
+            text-align: center;
+            animation: popIn .4s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.8);}
+            100% { transform: scale(1);}
         }
         .close-modal {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 12px;
+            right: 14px;
             cursor: pointer;
+            color: #333;
+            font-size: 1.6rem;
+        }
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #222;
+        }
+        .modal-highlight {
+            color: #FF6F61;
+            font-weight: bold;
+        }
+        .modal-btn {
+            background: linear-gradient(90deg, #FF6F61, #FFD700);
+            color: #222;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.8rem 2rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .modal-btn:hover {
+            background: linear-gradient(90deg, #E65A50, #E6C200);
+        }
+        .social-share {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-top: 1.2rem;
+        }
+        .social-share a {
             color: #fff;
+            background: #222;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            font-size: 1.5rem;
+            text-decoration: none;
         }
-
-        /* Ajustes para espaciado profesional */
-        main section {
-            margin-bottom: 4rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .grid {
-            gap: 2rem;
-        }
-        .text-center h2 {
-            margin-bottom: 2rem;
-        }
-        .text-center p {
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .social-share a:hover { background: #FF6F61; color: #fff;}
+        main section { margin-bottom: 4rem;}
+        .container { max-width: 1200px; margin-left: auto; margin-right: auto;}
+        .grid { gap: 2rem;}
+        .card { padding: 2rem;}
+        .text-center h2 { margin-bottom: 2rem;}
+        .text-center p { margin-left: auto; margin-right: auto;}
     </style>
 </head>
 <body class="dark-mode">
@@ -306,14 +265,14 @@
                     <li><a href="#blog" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">article</i>Blog</a></li>
                     <li><a href="#contacto" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">mail</i>Contacto</a></li>
                     <li><a href="#testimonios" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">forum</i>Testimonios</a></li>
-                    <li><a href="#contacto" class="block text-lg btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center mt-4" data-servicio="Clase Gratuita" onclick="abrirReserva(this)">¡Reserva tu clase gratuita! 🚀</a></li>
+                    <li><a href="#servicios" class="block text-lg btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center mt-4" data-servicio="Clase Gratuita" onclick="abrirReserva(this)">¡Reserva tu clase gratuita! 🚀</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 
     <main class="container mx-auto px-4">
-        <!-- Sección inicio con Swiper de imágenes -->
+        <!-- Swiper de imágenes principal -->
         <section id="inicio" class="my-12">
             <div class="swiper-container swiper-container-hero">
                 <div class="swiper-wrapper">
@@ -337,40 +296,82 @@
         <section id="servicios" class="my-12">
             <h2 class="text-3xl font-bold mb-8 text-center">Servicios</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Clases Grupales Online -->
                 <div class="card flex flex-col items-center text-center">
-                    <h3 class="text-xl font-bold mb-2">Clases Grupales</h3>
-                    <p>Aprende inglés en grupo de forma interactiva.</p>
+                    <h3 class="text-xl font-bold mb-2">Clases Grupales Online</h3>
+                    <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80"
+                         alt="Grupo de estudiantes en videollamada practicando inglés conversacional"
+                         class="rounded-lg mb-4 w-full h-40 object-cover"/>
+                    <p>Grupo de estudiantes en una videollamada practicando inglés conversacional.</p>
+                    <span class="block mt-4 text-lg font-semibold text-yellow-400">Inscríbete en nuestro próximo grupo 🚀</span>
                     <button 
                         class="btn-blue text-3xl font-bold mt-6 px-8 py-4"
-                        data-servicio="Clases Grupales"
+                        data-servicio="Clases Grupales Online"
                         onclick="abrirReserva(this)">
                         ¡RESERVA YA!
                     </button>
+                    <div class="social-share mt-6">
+                        <a href="https://wa.me/?text=¡Me%20interesan%20las%20clases%20grupales%20de%20inglés!" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tuweb.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://tuweb.com&text=¡Aprende%20inglés%20con%20Anderson!" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tuweb.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/share/url?url=https://tuweb.com" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="mailto:?subject=Clases%20de%20inglés%20con%20Anderson&body=¡Mira%20estas%20clases%20de%20inglés!%20https://tuweb.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
+                <!-- Clases Personalizadas -->
                 <div class="card flex flex-col items-center text-center">
                     <h3 class="text-xl font-bold mb-2">Clases Personalizadas</h3>
+                    <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80"
+                         alt="Clases personalizadas de inglés"
+                         class="rounded-lg mb-4 w-full h-40 object-cover"/>
                     <p>Clases adaptadas a tus necesidades y nivel.</p>
+                    <span class="block mt-4 text-lg font-semibold text-yellow-400">Inscríbete en nuestro próximo grupo 🚀</span>
                     <button 
                         class="btn-blue text-3xl font-bold mt-6 px-8 py-4"
                         data-servicio="Clases Personalizadas"
                         onclick="abrirReserva(this)">
                         ¡RESERVA YA!
                     </button>
+                    <div class="social-share mt-6">
+                        <a href="https://wa.me/?text=¡Me%20interesan%20las%20clases%20personalizadas%20de%20inglés!" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tuweb.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://tuweb.com&text=¡Aprende%20inglés%20con%20Anderson!" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tuweb.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/share/url?url=https://tuweb.com" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="mailto:?subject=Clases%20de%20inglés%20con%20Anderson&body=¡Mira%20estas%20clases%20de%20inglés!%20https://tuweb.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
+                <!-- Talleres de Pronunciación -->
                 <div class="card flex flex-col items-center text-center">
                     <h3 class="text-xl font-bold mb-2">Talleres de Pronunciación</h3>
+                    <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80"
+                         alt="Talleres de pronunciación en inglés"
+                         class="rounded-lg mb-4 w-full h-40 object-cover"/>
                     <p>Mejora tu pronunciación con ejercicios prácticos.</p>
+                    <span class="block mt-4 text-lg font-semibold text-yellow-400">Inscríbete en nuestro próximo grupo 🚀</span>
                     <button 
                         class="btn-blue text-3xl font-bold mt-6 px-8 py-4"
                         data-servicio="Talleres de Pronunciación"
                         onclick="abrirReserva(this)">
                         ¡RESERVA YA!
                     </button>
+                    <div class="social-share mt-6">
+                        <a href="https://wa.me/?text=¡Me%20interesan%20los%20talleres%20de%20pronunciación%20de%20inglés!" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://tuweb.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://tuweb.com&text=¡Aprende%20inglés%20con%20Anderson!" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tuweb.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/share/url?url=https://tuweb.com" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="mailto:?subject=Clases%20de%20inglés%20con%20Anderson&body=¡Mira%20estas%20clases%20de%20inglés!%20https://tuweb.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección testimonios con tarjetas estáticas -->
+        <!-- Testimonios (tarjetas estáticas) -->
         <section id="testimonios" class="my-12">
             <h2 class="text-3xl font-bold mb-8 text-center">Testimonios</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -388,92 +389,71 @@
                 </div>
             </div>
         </section>
-
-        <!-- Aquí otras secciones como blog, contacto, etc. -->
     </main>
 
-    <!-- Pop-up para reservar clase -->
+    <!-- Modal atractivo para incentivar la compra/reserva -->
     <div id="reservation-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-modal-btn" title="Cerrar"><i class="material-icons">close</i></span>
-            <h2 class="text-2xl sm:text-3xl font-semibold google-name mb-2">Reserva tu Clase Gratuita</h2>
-            <div id="servicio-seleccionado" class="mb-4 text-lg text-blue-400 font-semibold"></div>
+            <div class="modal-title mb-2">¡Reserva tu lugar ahora!</div>
+            <div class="mb-2 text-xl modal-highlight" id="servicio-seleccionado"></div>
+            <p class="mb-4 text-lg">¡No dejes pasar la oportunidad de mejorar tu inglés con clases <span class="modal-highlight">dinámicas y efectivas</span>! Reserva tu clase o taller y da el siguiente paso en tu aprendizaje. <br><span class="modal-highlight">Cupos limitados</span> 🚀</p>
             <form id="reservation-form" class="space-y-4">
                 <div>
-                    <label for="reservation-name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
-                    <input type="text" id="reservation-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required />
+                    <input type="text" id="reservation-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" placeholder="Tu nombre" required>
                 </div>
                 <div>
-                    <label for="reservation-email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
-                    <input type="email" id="reservation-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required />
+                    <input type="email" id="reservation-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" placeholder="Tu correo electrónico" required>
                 </div>
                 <div>
-                    <label for="reservation-time" class="block text-gray-300 text-sm font-bold mb-2">Horario Preferido:</label>
-                    <input type="text" id="reservation-time" name="time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ej: Lunes 3 PM" required />
+                    <input type="text" id="reservation-time" name="time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" placeholder="Horario preferido (Ej: Lunes 3 PM)" required>
                 </div>
-                <button type="submit" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 focus:outline-none focus:shadow-outline text-md">
-                    Enviar Solicitud 🚀
-                </button>
+                <button type="submit" class="modal-btn w-full">¡Quiero reservar mi lugar! 🚀</button>
             </form>
         </div>
     </div>
 
-    <!-- Pop-up para compra del producto digital (sin cambios) -->
+    <!-- Modal de compra digital (sin cambios) -->
     <div id="purchase-modal">
         <div class="modal-content">
             <span class="close-modal" id="close-purchase-modal-btn"><i class="material-icons">close</i></span>
             <h2 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Compra tu Guía Digital</h2>
             <form id="purchase-form" class="space-y-4">
                 <div>
-                    <label for="purchase-name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
-                    <input type="text" id="purchase-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required />
+                    <input type="text" id="purchase-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" placeholder="Tu nombre" required>
                 </div>
                 <div>
-                    <label for="purchase-email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
-                    <input type="email" id="purchase-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required />
+                    <input type="email" id="purchase-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" placeholder="Tu correo electrónico" required>
                 </div>
-                <p class="text-gray-300">Precio: $10 USD</p>
-                <p class="text-gray-300">Serás redirigido a PayPal para completar tu compra. Una vez confirmado el pago, recibirás un enlace de descarga.</p>
-                <!-- Enlace de PayPal (reemplaza con tu enlace real) -->
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jhon.marin524@pascualbravo.edu.co&amount=10&currency_code=USD" target="_blank" rel="noopener" class="btn-blue inline-block mt-4">Comprar Ahora</a>
+                <p class="text-gray-900">Precio: $10 USD</p>
+                <p class="text-gray-900">Serás redirigido a PayPal para completar tu compra. Una vez confirmado el pago, recibirás un enlace de descarga.</p>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jhon.marin524@pascualbravo.edu.co&amount=10&currency_code=USD" target="_blank" rel="noopener" class="modal-btn inline-block mt-4">Comprar Ahora</a>
             </form>
         </div>
     </div>
 
-    <!-- Scripts -->
+    <!-- Swiper y JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Inicializar Swiper de imágenes
+        // Swiper principal
         const swiperHero = new Swiper('.swiper-container-hero', {
             loop: true,
-            pagination: {
-                el: '.swiper-pagination-hero',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next-hero',
-                prevEl: '.swiper-button-prev-hero',
-            },
-            autoplay: {
-                delay: 5000,
-            },
+            pagination: { el: '.swiper-pagination-hero', clickable: true },
+            navigation: { nextEl: '.swiper-button-next-hero', prevEl: '.swiper-button-prev-hero' },
+            autoplay: { delay: 5000 },
         });
 
-        // Función para abrir modal de reserva y mostrar servicio
+        // Modal de reserva
         function abrirReserva(btn) {
             const servicio = btn.getAttribute('data-servicio') || "Clase Gratuita";
             document.getElementById('reservation-modal').classList.add('active');
             document.getElementById('servicio-seleccionado').innerText = `Servicio: ${servicio}`;
         }
-
-        // Cerrar modal reserva
         document.getElementById('close-modal-btn').onclick = function () {
             document.getElementById('reservation-modal').classList.remove('active');
             document.getElementById('servicio-seleccionado').innerText = '';
             document.getElementById('reservation-form').reset();
         };
-
-        // Cerrar modal al hacer clic fuera del contenido
         document.getElementById('reservation-modal').addEventListener('click', function (e) {
             if (e.target === this) {
                 this.classList.remove('active');
@@ -486,15 +466,23 @@
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const closeMenuBtn = document.getElementById('close-menu-btn');
-
         hamburgerBtn.addEventListener('click', () => {
             hamburgerBtn.classList.toggle('active');
             mobileMenu.classList.toggle('active');
         });
-
         closeMenuBtn.addEventListener('click', () => {
             hamburgerBtn.classList.remove('active');
             mobileMenu.classList.remove('active');
+        });
+
+        // Todos los botones con clase btn-blue o modal-btn abren el modal de reserva
+        document.querySelectorAll('.btn-blue, .modal-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (!this.closest('#reservation-modal')) {
+                    e.preventDefault();
+                    abrirReserva(this);
+                }
+            });
         });
     </script>
 </body>
