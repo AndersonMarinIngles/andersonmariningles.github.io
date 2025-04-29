@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Swiper.js para los carruseles -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- FontAwesome para íconos de redes sociales -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -50,17 +48,15 @@
         .btn-blue {
             background-color: #4285F4;
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 0.5rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, background 0.4s ease, box-shadow 0.3s ease;
-            display: inline-block;
-            text-align: center;
+            transition: all 0.3s ease;
         }
         .btn-blue:hover {
             background-color: #3367D6;
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .btn-hero {
@@ -73,11 +69,11 @@
             font-weight: 600;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease, background 0.4s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
         .btn-hero:hover {
             background: linear-gradient(90deg, #E65A50, #E6C200);
-            transform: scale(1.05);
+            transform: translateY(-3px);
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
         }
         .btn-hero::before {
@@ -138,10 +134,6 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        #hamburger-btn.active {
-            transform: scale(1.1) rotate(90deg);
         }
         .hamburger-icon {
             width: 24px;
@@ -177,12 +169,10 @@
 
         /* Estilos para el menú móvil */
         #mobile-menu {
-            opacity: 0;
             transform: translateX(100%);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: transform 0.3s ease-in-out;
         }
         #mobile-menu.active {
-            opacity: 1;
             transform: translateX(0);
             display: block !important;
         }
@@ -213,8 +203,14 @@
             color: #fff;
         }
 
+        /* Estilos para el carrusel de testimonios */
+        .swiper-button-next-testimonials,
+        .swiper-button-prev-testimonials {
+            color: #fff;
+        }
+
         /* Estilos para el pop-up */
-        #reservation-modal, #purchase-modal, #individual-modal, #group-modal, #pronunciation-modal {
+        #reservation-modal {
             display: none;
             position: fixed;
             top: 0;
@@ -225,56 +221,17 @@
             z-index: 100;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.5s ease;
         }
-        #reservation-modal.active, #purchase-modal.active, #individual-modal.active, #group-modal.active, #pronunciation-modal.active {
+        #reservation-modal.active {
             display: flex;
-            opacity: 1;
         }
         .modal-content {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: #1f1f1f;
+            padding: 2rem;
+            border-radius: 8px;
             width: 90%;
             max-width: 500px;
             position: relative;
-            transform: scale(0.8);
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-        }
-        #reservation-modal.active .modal-content, #purchase-modal.active .modal-content, #individual-modal.active .modal-content, #group-modal.active .modal-content, #pronunciation-modal.active .modal-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-        .modal-content h2 {
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        .modal-content label {
-            color: #e0e0e0;
-        }
-        .modal-content input, .modal-content textarea {
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #93c5fd;
-            color: #fff;
-            transition: border-color 0.3s ease;
-        }
-        .modal-content input:focus, .modal-content textarea:focus {
-            border-bottom-color: #ffd700;
-            outline: none;
-        }
-        .modal-content .btn-blue {
-            background: linear-gradient(90deg, #ffd700, #ff6f61);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-        .modal-content .btn-blue:hover {
-            background: linear-gradient(90deg, #e6c200, #e65a50);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-            transform: scale(1.05);
         }
         .close-modal {
             position: absolute;
@@ -282,25 +239,23 @@
             right: 10px;
             cursor: pointer;
             color: #fff;
-            transition: transform 0.3s ease;
-        }
-        .close-modal:hover {
-            transform: scale(1.2);
         }
 
-        /* Estilos para íconos de redes sociales */
-        .social-icon {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease, color 0.3s ease;
+        /* Estilos para el pop-up de compra */
+        #purchase-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
         }
-        .social-icon:hover {
-            transform: scale(1.2);
-            color: #ffd700;
-        }
-
-        /* Estilos para el formulario de contacto */
-        #contact-form input, #contact-form textarea {
-            color: #000 !important;
+        #purchase-modal.active {
+            display: flex;
         }
 
         /* Ajustes para espaciado profesional */
@@ -336,12 +291,11 @@
             <nav class="hidden md:block">
                 <ul class="flex space-x-6">
                     <li><a href="#inicio" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">home</i>Inicio</a></li>
-                    <li><a href="#servicios" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">school</i>Servicios</a></li>
                     <li><a href="#sobre-mi" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">person</i>Sobre Mí</a></li>
-                    <li><a href="#productos" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">store</i>Productos</a></li>
+                    <li><a href="#servicios" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">school</i>Servicios</a></li>
                     <li><a href="#blog" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">article</i>Blog</a></li>
-                    <li><a href="#testimonios" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">forum</i>Testimonios</a></li>
                     <li><a href="#contacto" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">mail</i>Contacto</a></li>
+                    <li><a href="#testimonios" class="hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">forum</i>Testimonios</a></li>
                 </ul>
             </nav>
             <button id="hamburger-btn" class="md:hidden text-white focus:outline-none" aria-label="Abrir menú móvil">
@@ -370,12 +324,11 @@
             <nav class="block">
                 <ul class="space-y-4">
                     <li><a href="#inicio" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">home</i>Inicio</a></li>
-                    <li><a href="#servicios" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">school</i>Servicios</a></li>
                     <li><a href="#sobre-mi" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">person</i>Sobre Mí</a></li>
-                    <li><a href="#productos" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">store</i>Productos</a></li>
+                    <li><a href="#servicios" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">school</i>Servicios</a></li>
                     <li><a href="#blog" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">article</i>Blog</a></li>
-                    <li><a href="#testimonios" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">forum</i>Testimonios</a></li>
                     <li><a href="#contacto" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">mail</i>Contacto</a></li>
+                    <li><a href="#testimonios" class="block text-lg text-white hover:text-blue-400 transition duration-300 flex items-center"><i class="material-icons mr-1">forum</i>Testimonios</a></li>
                     <li><a href="#contacto" class="block text-lg btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-center mt-4">¡Reserva tu clase gratuita! 🚀</a></li>
                 </ul>
             </nav>
@@ -390,15 +343,15 @@
             <form id="reservation-form" class="space-y-4">
                 <div>
                     <label for="reservation-name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
-                    <input type="text" id="reservation-name" name="name" class="shadow appearance-none rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <input type="text" id="reservation-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
                 <div>
                     <label for="reservation-email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
-                    <input type="email" id="reservation-email" name="email" class="shadow appearance-none rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <input type="email" id="reservation-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
                 <div>
                     <label for="reservation-time" class="block text-gray-300 text-sm font-bold mb-2">Horario Preferido:</label>
-                    <input type="text" id="reservation-time" name="time" class="shadow appearance-none rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ej: Lunes 3 PM" required>
+                    <input type="text" id="reservation-time" name="time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ej: Lunes 3 PM" required>
                 </div>
                 <button type="submit" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 focus:outline-none focus:shadow-outline text-md">
                     Enviar Solicitud 🚀
@@ -415,86 +368,17 @@
             <form id="purchase-form" class="space-y-4">
                 <div>
                     <label for="purchase-name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
-                    <input type="text" id="purchase-name" name="name" class="shadow appearance-none rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <input type="text" id="purchase-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
                 <div>
                     <label for="purchase-email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
-                    <input type="email" id="purchase-email" name="email" class="shadow appearance-none rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <input type="email" id="purchase-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
                 <p class="text-gray-300">Precio: $10 USD</p>
                 <p class="text-gray-300">Serás redirigido a PayPal para completar tu compra. Una vez confirmado el pago, recibirás un enlace de descarga.</p>
-                <!-- Enlace de PayPal actualizado -->
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=anderyonpii@gmail.com&amount=10&currency_code=USD&item_name=Guía%20Completa%20para%20Hablar%20Inglés%20en%2030%20Días" target="_blank" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center" id="paypal-link">Pagar con PayPal 🚀</a>
+                <!-- Enlace de PayPal (reemplaza con tu enlace real) -->
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jhon.marin524@pascualbravo.edu.co&amount=10¤cy_code=USD&item_name=Guía%20Completa%20para%20Hablar%20Inglés%20en%2030%20Días" target="_blank" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center" id="paypal-link">Pagar con PayPal 🚀</a>
             </form>
-        </div>
-    </div>
-
-    <!-- Pop-up para Clases Individuales -->
-    <div id="individual-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-individual-modal-btn"><i class="material-icons">close</i></span>
-            <h2 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Individuales Online</h2>
-            <img src="https://images.pexels.com/photos/6147136/pexels-photo-6147136.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Estudiante en una videollamada aprendiendo inglés" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
-            <p class="text-gray-300 mb-4">
-                Disfruta de una experiencia de aprendizaje personalizada, diseñada específicamente para tus necesidades. Con clases individuales, recibirás:
-            </p>
-            <ul class="list-disc list-inside text-gray-300 mb-4">
-                <li>Corrección inmediata de tus errores para un progreso rápido. 📈</li>
-                <li>Clases adaptadas a tu nivel, desde principiante hasta avanzado. 🌟</li>
-                <li>Horarios que se ajustan a tu vida ocupada. ⏰</li>
-            </ul>
-            <p class="text-gray-300 mb-4">
-                ¡No pierdas esta oportunidad de aprender inglés de manera efectiva y con un profesor experto! 🚀
-            </p>
-            <a href="#contacto" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center">
-                Reserva tu Clase Ahora 🚀
-            </a>
-        </div>
-    </div>
-
-    <!-- Pop-up para Clases Grupales -->
-    <div id="group-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-group-modal-btn"><i class="material-icons">close</i></span>
-            <h2 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Grupales Online</h2>
-            <img src="https://images.pexels.com/photos/6147256/pexels-photo-6147256.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Grupo de estudiantes en una videollamada" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
-            <p class="text-gray-300 mb-4">
-                Únete a un grupo dinámico y aprende inglés mientras interactúas con otros estudiantes. Las clases grupales ofrecen:
-            </p>
-            <ul class="list-disc list-inside text-gray-300 mb-4">
-                <li>Práctica conversacional real con compañeros de tu nivel. 🗣️</li>
-                <li>Un ambiente motivador para mejorar tu confianza. 💪</li>
-                <li>Actividades interactivas que hacen que aprender sea divertido. 🎉</li>
-            </ul>
-            <p class="text-gray-300 mb-4">
-                ¡Empieza a hablar inglés con fluidez en un entorno colaborativo! 🚀
-            </p>
-            <a href="#contacto" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center">
-                Inscríbete Ahora 🚀
-            </a>
-        </div>
-    </div>
-
-    <!-- Pop-up para Talleres de Pronunciación -->
-    <div id="pronunciation-modal">
-        <div class="modal-content">
-            <span class="close-modal" id="close-pronunciation-modal-btn"><i class="material-icons">close</i></span>
-            <h2 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Talleres Intensivos de Pronunciación</h2>
-            <img src="https://images.pexels.com/photos/6147142/pexels-photo-6147142.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Persona practicando pronunciación con micrófono" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
-            <p class="text-gray-300 mb-4">
-                Perfecciona tu pronunciación en inglés con un taller intensivo diseñado para resultados rápidos. Este taller incluye:
-            </p>
-            <ul class="list-disc list-inside text-gray-300 mb-4">
-                <li>Técnicas avanzadas para mejorar tu acento. 🎙️</li>
-                <li>Ejercicios prácticos con retroalimentación inmediata. ✅</li>
-                <li>Consejos para sonar como un hablante nativo. 🌟</li>
-            </ul>
-            <p class="text-gray-300 mb-4">
-                ¡Habla inglés con claridad y confianza en cualquier situación! 🚀
-            </p>
-            <a href="#contacto" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center">
-                Regístrate Ahora 🚀
-            </a>
         </div>
     </div>
 
@@ -512,7 +396,7 @@
                         <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante escribiendo notas en inglés mientras estudia" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.pexels.com/photos/159711/books-library-literature-study-159711.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600" alt="Tablero con la palabra English y elementos educativos" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante joven apuntando a una pizarra con palabras en inglés" loading="lazy">
                     </div>
                     <div class="swiper-slide">
                         <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiantes practicando inglés en una clase grupal" loading="lazy">
@@ -521,7 +405,7 @@
                         <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Grupo de estudiantes celebrando su progreso en inglés" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Cuaderno con palabras en inglés y un lápiz" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Grupo de estudiantes practicando conversación en inglés" loading="lazy">
                     </div>
                     <div class="swiper-slide">
                         <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Clase de inglés al aire libre con estudiantes interactuando" loading="lazy">
@@ -548,82 +432,6 @@
             <p class="text-yellow-400 mt-4">¡Plazas limitadas para este mes!</p>
         </section>
 
-        <section id="servicios" class="bg-gray-900 rounded-lg shadow-lg py-12 px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
-                <i class="material-icons mr-2 text-4xl">school</i>Mis Servicios
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
-                    <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Individuales Online</h3>
-                    <img src="https://images.pexels.com/photos/6147136/pexels-photo-6147136.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Estudiante en una videollamada aprendiendo inglés con Anderson Marín" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
-                    <p class="text-gray-300 mb-4">
-                        Aprende a tu propio ritmo con lecciones personalizadas adaptadas a tus necesidades y objetivos específicos.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4">
-                        <li>Atención individualizada y retroalimentación personalizada. ✅</li>
-                        <li>Flexibilidad de horarios. ⏰</li>
-                        <li>Contenido adaptado a tus intereses y nivel. 🎯</li>
-                    </ul>
-                    <p class="text-yellow-400 font-semibold mb-4">Precio: \$50.000 COP por hora</p>
-                    <div class="text-center">
-                        <button id="open-individual-modal-btn" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
-                            Más Información 🚀
-                        </button>
-                        <a href="#contacto" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 text-md mt-2">
-                            Reserva tu Clase 🚀
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
-                    <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Grupales Online</h3>
-                    <img src="https://images.pexels.com/photos/6147256/pexels-photo-6147256.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Grupo de estudiantes en una videollamada practicando inglés conversacional" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
-                    <p class="text-gray-300 mb-4">
-                        Aprende y practica inglés con otros estudiantes en un ambiente colaborativo y motivador. Ideal para mejorar tu fluidez conversacional.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4">
-                        <li>Precio más accesible que las clases individuales. 💰</li>
-                        <li>Oportunidad de practicar con compañeros. 🗣️</li>
-                        <li>Ambiente de aprendizaje dinámico y divertido. 🎉</li>
-                    </ul>
-                    <p class="text-yellow-400 font-semibold mb-4">Precio: \$30.000 COP por hora por estudiante</p>
-                    <div class="text-center">
-                        <button id="open-group-modal-btn" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
-                            Más Información 🚀
-                        </button>
-                        <a href="#contacto" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 text-md mt-2">
-                            Inscríbete Ahora 🚀
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
-                    <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Talleres Intensivos de Pronunciación</h3>
-                    <img src="https://images.pexels.com/photos/6147142/pexels-photo-6147142.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Persona practicando pronunciación con micrófono" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
-                    <p class="text-gray-300 mb-4">
-                        Un taller práctico y enfocado en mejorar tu pronunciación en inglés.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4">
-                        <li>Mejora significativa en tu pronunciación. 🗣️</li>
-                        <li>Mayor confianza al hablar inglés. 💪</li>
-                        <li>Habilidad para comunicarte con mayor eficacia. 🎯</li>
-                    </ul>
-                    <p class="text-yellow-400 font-semibold mb-4">Precio: A definir</p>
-                    <div class="text-center">
-                        <button id="open-pronunciation-modal-btn" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
-                            Más Información 🚀
-                        </button>
-                        <a href="#contacto" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 text-md mt-2">
-                            Regístrate Ahora 🚀
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-10">
-                <a href="#contacto" class="btn-blue inline-block text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
-                    ¡Explora todos mis servicios! 🚀
-                </a>
-            </div>
-        </section>
-
         <section id="sobre-mi" class="bg-gray-800 rounded-lg shadow-lg py-12 px-6 lg:px-8 card">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
@@ -641,7 +449,8 @@
                     </p>
                 </div>
                 <div>
-                    <img src="https://images.pexels.com/photos/5428004/pexels-photo-5428004.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tablero con la palabra English y elementos representativos del inglés" class="rounded-lg shadow-md w-full" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Profesor Anderson Marín explicando inglés en una pizarra" class="rounded-lg shadow-md w-full" loading="lazy">
+                    <p class="text-gray-300 mt-2 text-sm">[Reemplaza esta imagen con una foto tuya real para conectar con tu audiencia]</p>
                 </div>
             </div>
             <div class="mt-10">
@@ -662,24 +471,70 @@
                     Mis estudiantes han logrado hablar inglés con confianza en situaciones cotidianas y profesionales. Desde niños que ahora cantan canciones en inglés hasta adultos que han conseguido mejores oportunidades laborales, mi método ha ayudado a transformar vidas a través del idioma.
                 </p>
             </div>
+            <div class="mt-10 flex justify-center">
+                <!-- Placeholder para insignias -->
+                <p class="text-gray-300">[Añade aquí una insignia de tu certificación C2 o premios]</p>
+            </div>
         </section>
 
-        <section id="productos" class="bg-gray-800 rounded-lg shadow-lg py-12 px-6 lg:px-8">
+        <section id="servicios" class="bg-gray-900 rounded-lg shadow-lg py-12 px-6 lg:px-8">
             <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
-                <i class="material-icons mr-2 text-4xl">store</i>Productos Digitales
+                <i class="material-icons mr-2 text-4xl">school</i>Mis Servicios
             </h2>
-            <div class="text-center">
-                <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">
-                    Guía Completa para Hablar Inglés en 30 Días
-                </h3>
-                <p class="text-gray-300 mb-4 max-w-2xl mx-auto">
-                    Una guía práctica con ejercicios, frases útiles y técnicas mnemotécnicas para que hagas un gran progreso en solo un mes.
-                </p>
-                <p class="text-yellow-400 font-semibold mb-4">Precio: $10 USD</p>
-                <button id="open-purchase-modal-btn" class="inline-block btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
-                    Comprar Ahora 🚀
-                </button>
-                <p class="text-gray-300 mt-4">[Sube tu eBook en PDF a tu repositorio o a Google Drive y actualiza el enlace de descarga después de la compra]</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
+                    <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Individuales Online</h3>
+                    <img src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante en una videollamada aprendiendo inglés con Anderson Marín" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <p class="text-gray-300 mb-4">
+                        Aprende a tu propio ritmo con lecciones personalizadas adaptadas a tus necesidades y objetivos específicos.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 mb-4">
+                        <li>Atención individualizada y retroalimentación personalizada. ✅</li>
+                        <li>Flexibilidad de horarios. ⏰</li>
+                        <li>Contenido adaptado a tus intereses y nivel. 🎯</li>
+                    </ul>
+                    <p class="text-yellow-400 font-semibold mb-4">Precio: \$50.000 COP por hora</p>
+                    <a href="#contacto" class="inline-block btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
+                        Reserva tu clase individual 🚀
+                    </a>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
+                    <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Grupales Online</h3>
+                    <img src="https://images.unsplash.com/photo-1611224923851-80d203d86d24?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Grupo de estudiantes en una videollamada practicando inglés conversacional" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <p class="text-gray-300 mb-4">
+                        Aprende y practica inglés con otros estudiantes en un ambiente colaborativo y motivador. Ideal para mejorar tu fluidez conversacional.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 mb-4">
+                        <li>Precio más accesible que las clases individuales. 💰</li>
+                        <li>Oportunidad de practicar con compañeros. 🗣️</li>
+                        <li>Ambiente de aprendizaje dinámico y divertido. 🎉</li>
+                    </ul>
+                    <p class="text-yellow-400 font-semibold mb-4">Precio: \$30.000 COP por hora por estudiante</p>
+                    <a href="#contacto" class="inline-block btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
+                        Inscríbete en nuestro próximo grupo 🚀
+                    </a>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
+                    <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Talleres Intensivos de Pronunciación</h3>
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Persona practicando pronunciación frente a un micrófono" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <p class="text-gray-300 mb-4">
+                        Un taller práctico y enfocado en mejorar tu pronunciación en inglés.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-300 mb-4">
+                        <li>Mejora significativa en tu pronunciación. 🗣️</li>
+                        <li>Mayor confianza al hablar inglés. 💪</li>
+                        <li>Habilidad para comunicarte con mayor eficacia. 🎯</li>
+                    </ul>
+                    <p class="text-yellow-400 font-semibold mb-4">Precio: A definir</p>
+                    <a href="#contacto" class="inline-block btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
+                        Regístrate en el próximo taller 🚀
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#contacto" class="btn-blue inline-block text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
+                    ¡Explora todos mis servicios! 🚀
+                </a>
             </div>
         </section>
 
@@ -706,110 +561,11 @@
                         Aprende más sobre técnicas mnemotécnicas en <a href="https://www.fluentu.com/blog/english/memory-techniques-for-learning-english/" class="text-blue-400 hover:text-blue-600" target="_blank">este artículo de FluentU</a>.
                     </p>
                     <div class="flex justify-center space-x-4 mt-4">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-facebook-f"></i>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600">
+                            <i class="material-icons">share</i>
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!%20Lee%20estas%205%20técnicas%20para%20aprender%20rápido" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="https://wa.me/?text=Aprende%20inglés%20con%20Anderson%20Marín!%20Lee%20estas%205%20técnicas%20para%20aprender%20rápido%20https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://t.me/share/url?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!%20Lee%20estas%205%20técnicas%20para%20aprender%20rápido" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                        <a href="https://www.threads.net/share?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!%20Lee%20estas%205%20técnicas%20para%20aprender%20rápido" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-threads"></i>
-                        </a>
-                        <a href="https://www.instagram.com/share?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!%20Lee%20estas%205%20técnicas%20para%20aprender%20rápido" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://andersonmariningles.github.io&title=Aprende%20inglés%20con%20Anderson%20Marín!%20Lee%20estas%205%20técnicas%20para%20aprender%20rápido" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-gray-900 rounded-lg p-6">
-                    <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">
-                        Domina el Verbo 'To Be' en Inglés: Guía Completa para Principiantes
-                    </h3>
-                    <p class="text-gray-300 mb-4">
-                        El verbo "to be" es uno de los más importantes en inglés. Se usa para describir estados, identidades, ubicaciones y más. Aquí te explico cómo usarlo correctamente:
-                    </p>
-                    <h4 class="text-xl font-semibold google-name mb-2">Formas del Verbo 'To Be'</h4>
-                    <table class="w-full text-gray-300 mb-4 border-collapse">
-                        <thead>
-                            <tr class="bg-gray-700">
-                                <th class="border border-gray-600 p-2">Sujeto</th>
-                                <th class="border border-gray-600 p-2">Presente</th>
-                                <th class="border border-gray-600 p-2">Pasado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border border-gray-600 p-2">I</td>
-                                <td class="border border-gray-600 p-2">am</td>
-                                <td class="border border-gray-600 p-2">was</td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-600 p-2">You</td>
-                                <td class="border border-gray-600 p-2">are</td>
-                                <td class="border border-gray-600 p-2">were</td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-600 p-2">He/She/It</td>
-                                <td class="border border-gray-600 p-2">is</td>
-                                <td class="border border-gray-600 p-2">was</td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-600 p-2">We</td>
-                                <td class="border border-gray-600 p-2">are</td>
-                                <td class="border border-gray-600 p-2">were</td>
-                            </tr>
-                            <tr>
-                                <td class="border border-gray-600 p-2">They</td>
-                                <td class="border border-gray-600 p-2">are</td>
-                                <td class="border border-gray-600 p-2">were</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h4 class="text-xl font-semibold google-name mb-2">Usos del Verbo 'To Be'</h4>
-                    <ul class="list-disc list-inside text-gray-300 mb-4">
-                        <li><strong>Identidad:</strong> I am a teacher. (Soy profesor.)</li>
-                        <li><strong>Estado:</strong> She is happy. (Ella está feliz.)</li>
-                        <li><strong>Ubicación:</strong> We are at home. (Estamos en casa.)</li>
-                        <li><strong>Tiempo:</strong> It is 5 o'clock. (Son las 5 en punto.)</li>
-                    </ul>
-                    <h4 class="text-xl font-semibold google-name mb-2">Consejos para Aprenderlo</h4>
-                    <ul class="list-disc list-inside text-gray-300 mb-4">
-                        <li>Practica con frases simples: "I am happy", "You are a student". 🗣️</li>
-                        <li>Usa canciones que contengan el verbo "to be" para memorizarlo. 🎶</li>
-                        <li>Haz ejercicios diarios con un profesor experto. <a href="#servicios" class="text-blue-400 hover:text-blue-600">¡Reserva una clase conmigo!</a></li>
-                    </ul>
-                    <p class="text-gray-300">
-                        Aprende más sobre el verbo "to be" en <a href="https://www.englishpage.com/verbpage/tobe.html" class="text-blue-400 hover:text-blue-600" target="_blank">este artículo de EnglishPage</a>.
-                    </p>
-                    <div class="flex justify-center space-x-4 mt-4">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://twitter.com/intent/tweet?url=https://andersonmariningles.github.io&text=Domina%20el%20verbo%20'To%20Be'%20en%20inglés%20con%20esta%20guía%20de%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="https://wa.me/?text=Domina%20el%20verbo%20'To%20Be'%20en%20inglés%20con%20esta%20guía%20de%20Anderson%20Marín!%20https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://t.me/share/url?url=https://andersonmariningles.github.io&text=Domina%20el%20verbo%20'To%20Be'%20en%20inglés%20con%20esta%20guía%20de%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                        <a href="https://www.threads.net/share?url=https://andersonmariningles.github.io&text=Domina%20el%20verbo%20'To%20Be'%20en%20inglés%20con%20esta%20guía%20de%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-threads"></i>
-                        </a>
-                        <a href="https://www.instagram.com/share?url=https://andersonmariningles.github.io&text=Domina%20el%20verbo%20'To%20Be'%20en%20inglés%20con%20esta%20guía%20de%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://andersonmariningles.github.io&title=Domina%20el%20verbo%20'To%20Be'%20en%20inglés%20con%20esta%20guía%20de%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="https://twitter.com/intent/tweet?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!%20Lee%20estas%205%20técnicas%20para%20aprender%20rápido" target="_blank" class="text-blue-400 hover:text-blue-600">
+                            <i class="material-icons">share</i>
                         </a>
                     </div>
                 </div>
@@ -825,19 +581,24 @@
             <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
                 <i class="material-icons mr-2 text-4xl">forum</i>Testimonios
             </h2>
-            <div id="testimonial-container">
-                <div class="testimonial-card">
-                    <p class="mb-4">"Las clases de Anderson son increíbles. Empecé desde cero y ahora puedo mantener conversaciones en inglés con confianza. ¡Lo recomiendo!"</p>
-                    <p class="text-yellow-400 font-semibold">- María G., Bogotá</p>
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="testimonial-container">
+                    <div class="swiper-slide testimonial-card">
+                        <p class="mb-4">"Las clases de Anderson son increíbles. Empecé desde cero y ahora puedo mantener conversaciones en inglés con confianza. ¡Lo recomiendo!"</p>
+                        <p class="text-yellow-400 font-semibold">- María G., Bogotá</p>
+                    </div>
+                    <div class="swiper-slide testimonial-card">
+                        <p class="mb-4">"Mi hijo de 8 años ama las clases de Anderson. Aprende con juegos y canciones, y ya sabe muchas palabras en inglés. ¡Gracias!"</p>
+                        <p class="text-yellow-400 font-semibold">- Carlos R., Medellín</p>
+                    </div>
+                    <div class="swiper-slide testimonial-card">
+                        <p class="mb-4">"El taller de pronunciación me ayudó a mejorar mi acento. Ahora me siento mucho más seguro al hablar en inglés en mi trabajo."</p>
+                        <p class="text-yellow-400 font-semibold">- Laura S., Cali</p>
+                    </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="mb-4">"Mi hijo de 8 años ama las clases de Anderson. Aprende con juegos y canciones, y ya sabe muchas palabras en inglés. ¡Gracias!"</p>
-                    <p class="text-yellow-400 font-semibold">- Carlos R., Medellín</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="mb-4">"El taller de pronunciación me ayudó a mejorar mi acento. Ahora me siento mucho más seguro al hablar en inglés en mi trabajo."</p>
-                    <p class="text-yellow-400 font-semibold">- Laura S., Cali</p>
-                </div>
+                <div class="swiper-button-next-testimonials"></div>
+                <div class="swiper-button-prev-testimonials"></div>
+                <div class="swiper-pagination"></div>
             </div>
             <button id="add-testimonial-btn" class="block mx-auto mt-10 btn-blue font-semibold py-3 px-6 rounded-full transition duration-300 text-lg shadow-md">
                 ¡Comparte tu experiencia! 🤩
@@ -865,9 +626,9 @@
                         <li class="flex items-center text-gray-300">
                             <i class="material-icons mr-2 text-blue-400">public</i>
                             Redes Sociales: 
-                            <a href="https://facebook.com/tu-perfil" class="hover:text-blue-400 mx-1 social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>, 
-                            <a href="https://instagram.com/tu-perfil" class="hover:text-blue-400 mx-1 social-icon" target="_blank"><i class="fab fa-instagram"></i></a>, 
-                            <a href="https://linkedin.com/in/tu-perfil" class="hover:text-blue-400 mx-1 social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://facebook.com/tu-perfil" class="hover:text-blue-400 mx-1" target="_blank">Facebook</a>, 
+                            <a href="https://instagram.com/tu-perfil" class="hover:text-blue-400 mx-1" target="_blank">Instagram</a>, 
+                            <a href="https://linkedin.com/in/tu-perfil" class="hover:text-blue-400 mx-1" target="_blank">LinkedIn</a>
                         </li>
                     </ul>
                     <!-- Anuncio lateral -->
@@ -882,15 +643,15 @@
                     <form id="contact-form" action="https://formspree.io/f/mzzrdbnj" method="POST" class="bg-gray-800 rounded-lg shadow-md p-6 space-y-4 card">
                         <div>
                             <label for="name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
-                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" required>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>
                         <div>
                             <label for="email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline" required>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>
                         <div>
                             <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Mensaje:</label>
-                            <textarea id="message" name="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline h-32 resize-y" required></textarea>
+                            <textarea id="message" name="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline h-32 resize-y" required></textarea>
                         </div>
                         <button type="submit" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 focus:outline-none focus:shadow-outline text-md">
                             Enviar Mensaje 🚀
@@ -899,27 +660,31 @@
                 </div>
             </div>
             <div class="flex justify-center space-x-4 mt-8">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                    <i class="fab fa-facebook-f"></i>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600">
+                    <i class="material-icons">share</i>
                 </a>
-                <a href="https://twitter.com/intent/tweet?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                    <i class="fab fa-x-twitter"></i>
+                <a href="https://twitter.com/intent/tweet?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600">
+                    <i class="material-icons">share</i>
                 </a>
-                <a href="https://wa.me/?text=Aprende%20inglés%20con%20Anderson%20Marín!%20https://andersonmariningles.github.io" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://t.me/share/url?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                    <i class="fab fa-telegram-plane"></i>
-                </a>
-                <a href="https://www.threads.net/share?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                    <i class="fab fa-threads"></i>
-                </a>
-                <a href="https://www.instagram.com/share?url=https://andersonmariningles.github.io&text=Aprende%20inglés%20con%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://andersonmariningles.github.io&title=Aprende%20inglés%20con%20Anderson%20Marín!" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+            </div>
+        </section>
+
+        <section id="productos" class="bg-gray-800 rounded-lg shadow-lg py-12 px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
+                <i class="material-icons mr-2 text-4xl">store</i>Productos Digitales
+            </h2>
+            <div class="text-center">
+                <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">
+                    Guía Completa para Hablar Inglés en 30 Días
+                </h3>
+                <p class="text-gray-300 mb-4 max-w-2xl mx-auto">
+                    Una guía práctica con ejercicios, frases útiles y técnicas mnemotécnicas para que hagas un gran progreso en solo un mes.
+                </p>
+                <p class="text-yellow-400 font-semibold mb-4">Precio: $10 USD</p>
+                <button id="open-purchase-modal-btn" class="inline-block btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
+                    Comprar Ahora 🚀
+                </button>
+                <p class="text-gray-300 mt-4">[Sube tu eBook en PDF a tu repositorio o a Google Drive y actualiza el enlace de descarga después de la compra]</p>
             </div>
         </section>
     </main>
@@ -932,225 +697,209 @@
     <footer class="bg-gray-900 text-white py-6 text-center rounded-t-lg shadow-md">
         <p>© 2023 Aprende Inglés con Anderson Marín. Todos los derechos reservados. 🤓</p>
         <div class="flex justify-center space-x-4 mt-2">
-            <a href="https://facebook.com/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                <i class="fab fa-facebook-f"></i>
+            <a href="https://facebook.com/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600">
+                <i class="material-icons">facebook</i>
             </a>
-            <a href="https://twitter.com/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                <i class="fab fa-x-twitter"></i>
+            <a href="https://instagram.com/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600">
+                <i class="material-icons">photo_camera</i>
             </a>
-            <a href="https://wa.me/573194241586?text=Hola%20Anderson,%20quiero%20reservar%20una%20clase%20de%20prueba%20gratuita" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://t.me/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                <i class="fab fa-telegram-plane"></i>
-            </a>
-            <a href="https://www.threads.net/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                <i class="fab fa-threads"></i>
-            </a>
-            <a href="https://instagram.com/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://linkedin.com/in/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600 social-icon">
-                <i class="fab fa-linkedin-in"></i>
+            <a href="https://linkedin.com/in/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600">
+                <i class="material-icons">business</i>
             </a>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts al final para mejor rendimiento -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        // Inicializar Swiper para el carrusel de inicio
-        const swiperHero = new Swiper('.swiper-container-hero', {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination-hero',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next-hero',
-                prevEl: '.swiper-button-prev-hero',
-            },
-            slidesPerView: 1,
-            spaceBetween: 10,
-        });
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenuBtn = document.getElementById("close-menu-btn");
+    const mobileMenuLinks = mobileMenu.querySelectorAll("nav a");
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = document.querySelectorAll("section");
+    const addTestimonialBtn = document.getElementById("add-testimonial-btn");
+    const testimonialContainer = document.getElementById("testimonial-container");
+    const contactForm = document.getElementById("contact-form");
+    const openModalBtn = document.getElementById("open-modal-btn");
+    const closeModalBtn = document.getElementById("close-modal-btn");
+    const reservationModal = document.getElementById("reservation-modal");
+    const reservationForm = document.getElementById("reservation-form");
+    const openPurchaseModalBtn = document.getElementById("open-purchase-modal-btn");
+    const closePurchaseModalBtn = document.getElementById("close-purchase-modal-btn");
+    const purchaseModal = document.getElementById("purchase-modal");
+    const purchaseForm = document.getElementById("purchase-form");
 
-        // Menú hamburguesa
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
+    function toggleMobileMenu() {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("active");
+        hamburgerBtn.classList.toggle("active");
+    }
 
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            hamburgerBtn.classList.toggle('active');
-        });
-
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            hamburgerBtn.classList.remove('active');
-        });
-
-        // Pop-up para reservar clase
-        const openModalBtn = document.getElementById('open-modal-btn');
-        const reservationModal = document.getElementById('reservation-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-
-        openModalBtn.addEventListener('click', () => {
-            reservationModal.classList.add('active');
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            reservationModal.classList.remove('active');
-        });
-
-        // Pop-up para compra de producto digital
-        const openPurchaseModalBtn = document.getElementById('open-purchase-modal-btn');
-        const purchaseModal = document.getElementById('purchase-modal');
-        const closePurchaseModalBtn = document.getElementById('close-purchase-modal-btn');
-
-        openPurchaseModalBtn.addEventListener('click', () => {
-            purchaseModal.classList.add('active');
-        });
-
-        closePurchaseModalBtn.addEventListener('click', () => {
-            purchaseModal.classList.remove('active');
-        });
-
-        // Pop-up para Clases Individuales
-        const openIndividualModalBtn = document.getElementById('open-individual-modal-btn');
-        const individualModal = document.getElementById('individual-modal');
-        const closeIndividualModalBtn = document.getElementById('close-individual-modal-btn');
-
-        openIndividualModalBtn.addEventListener('click', () => {
-            individualModal.classList.add('active');
-        });
-
-        closeIndividualModalBtn.addEventListener('click', () => {
-            individualModal.classList.remove('active');
-        });
-
-        // Pop-up para Clases Grupales
-        const openGroupModalBtn = document.getElementById('open-group-modal-btn');
-        const groupModal = document.getElementById('group-modal');
-        const closeGroupModalBtn = document.getElementById('close-group-modal-btn');
-
-        openGroupModalBtn.addEventListener('click', () => {
-            groupModal.classList.add('active');
-        });
-
-        closeGroupModalBtn.addEventListener('click', () => {
-            groupModal.classList.remove('active');
-        });
-
-        // Pop-up para Talleres de Pronunciación
-        const openPronunciationModalBtn = document.getElementById('open-pronunciation-modal-btn');
-        const pronunciationModal = document.getElementById('pronunciation-modal');
-        const closePronunciationModalBtn = document.getElementById('close-pronunciation-modal-btn');
-
-        openPronunciationModalBtn.addEventListener('click', () => {
-            pronunciationModal.classList.add('active');
-        });
-
-        closePronunciationModalBtn.addEventListener('click', () => {
-            pronunciationModal.classList.remove('active');
-        });
-
-        // Formulario de reservación
-        const reservationForm = document.getElementById('reservation-form');
-        reservationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('¡Solicitud enviada! Pronto te contactaré para confirmar tu clase gratuita. 🚀');
-            reservationModal.classList.remove('active');
-            reservationForm.reset();
-        });
-
-        // Formulario de compra
-        const purchaseForm = document.getElementById('purchase-form');
-        purchaseForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const paypalLink = document.getElementById('paypal-link');
-            paypalLink.click();
-            purchaseModal.classList.remove('active');
-            purchaseForm.reset();
-        });
-
-        // Formulario de contacto
-        const contactForm = document.getElementById('contact-form');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: new FormData(contactForm),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    alert('¡Mensaje enviado! Te contactaré pronto. 🚀');
-                    contactForm.reset();
-                } else {
-                    alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.');
-                }
-            });
-        });
-
-        // Agregar testimonio
-        const addTestimonialBtn = document.getElementById('add-testimonial-btn');
-        const testimonialContainer = document.getElementById('testimonial-container');
-
-        addTestimonialBtn.addEventListener('click', () => {
-            const testimonial = prompt('Comparte tu experiencia (máximo 200 caracteres):');
-            const name = prompt('Tu nombre y ciudad (Ej: Juan P., Bogotá):');
-            if (testimonial && name && testimonial.length <= 200) {
-                const newTestimonial = document.createElement('div');
-                newTestimonial.classList.add('testimonial-card');
-                newTestimonial.innerHTML = `
-                    <p class="mb-4">"${testimonial}"</p>
-                    <p class="text-yellow-400 font-semibold">- ${name}</p>
-                `;
-                testimonialContainer.appendChild(newTestimonial);
-            } else if (testimonial && testimonial.length > 200) {
-                alert('El testimonio no debe exceder los 200 caracteres. Intenta de nuevo.');
-            }
-        });
-
-        // Lazy loading para imágenes
-        document.addEventListener('DOMContentLoaded', () => {
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            const options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        observer.unobserve(img);
+    function highlightActiveSection() {
+        const scrollPosition = window.scrollY + 100;
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute("id");
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                mobileMenuLinks.forEach(link => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href") === `#${sectionId}`) {
+                        link.classList.add("active");
                     }
                 });
-            }, options);
-            images.forEach(img => observer.observe(img));
+            }
         });
+    }
 
-        // Animaciones al hacer scroll
-        const sections = document.querySelectorAll('section');
-        const animateOnScroll = () => {
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (sectionTop < windowHeight * 0.8) {
-                    section.classList.add('animate__animated', 'animate__fadeIn');
-                }
-            });
-        };
-        window.addEventListener('scroll', animateOnScroll);
+    hamburgerBtn.addEventListener("click", toggleMobileMenu);
+    closeMenuBtn.addEventListener("click", toggleMobileMenu);
+    mobileMenuLinks.forEach(link => link.addEventListener("click", () => {
+        toggleMobileMenu();
+        mobileMenuLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+    }));
+
+    document.addEventListener("click", (event) => {
+        if (!mobileMenu.classList.contains("hidden") && !mobileMenu.contains(event.target) && event.target !== hamburgerBtn) {
+            toggleMobileMenu();
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute("href").slice(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+    window.addEventListener("scroll", highlightActiveSection);
+
+    // Pop-up para reservar clase
+    openModalBtn.addEventListener("click", () => {
+        reservationModal.classList.add("active");
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+        reservationModal.classList.remove("active");
+    });
+
+    reservationForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        alert("¡Solicitud enviada! Te contactaré pronto para confirmar tu clase gratuita. 🚀");
+        reservationModal.classList.remove("active");
+        reservationForm.reset();
+    });
+
+    // Pop-up para compra del producto digital
+    openPurchaseModalBtn.addEventListener("click", () => {
+        purchaseModal.classList.add("active");
+    });
+
+    closePurchaseModalBtn.addEventListener("click", () => {
+        purchaseModal.classList.remove("active");
+    });
+
+    purchaseForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const paypalLink = document.getElementById("paypal-link");
+        alert("Redirigiéndote a PayPal para completar tu compra. Una vez confirmado el pago, recibirás un enlace de descarga en tu correo.");
+        paypalLink.click();
+        purchaseModal.classList.remove("active");
+        purchaseForm.reset();
+    });
+
+    // Carrusel de imágenes en #inicio
+    const swiperHero = new Swiper('.swiper-container-hero', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination-hero',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next-hero',
+            prevEl: '.swiper-button-prev-hero',
+        },
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+            delay: 5000,
+        },
+    });
+
+    // Carrusel de testimonios
+    const swiper = new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next-testimonials',
+            prevEl: '.swiper-button-prev-testimonials',
+        },
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+            delay: 5000,
+        },
+    });
+
+    function createTestimonialElement(testimonial) {
+        const testimonialDiv = document.createElement("div");
+        testimonialDiv.classList.add("swiper-slide", "testimonial-card");
+        testimonialDiv.innerHTML = `
+            <p class="mb-4">"${testimonial.comment}"</p>
+            <p class="text-yellow-400 font-semibold">- ${testimonial.name}, ${testimonial.location}</p>
+        `;
+        return testimonialDiv;
+    }
+
+    function addTestimonial(event) {
+        event.preventDefault();
+        const name = prompt("Por favor, ingresa tu nombre:");
+        const location = prompt("Por favor, ingresa tu ciudad:");
+        const comment = prompt("Por favor, comparte tu experiencia:");
+        if (name && location && comment) {
+            const newTestimonial = { name, location, comment };
+            const testimonialElement = createTestimonialElement(newTestimonial);
+            testimonialContainer.appendChild(testimonialElement);
+            const testimonialData = JSON.parse(localStorage.getItem("testimonials")) || [];
+            testimonialData.push(newTestimonial);
+            localStorage.setItem("testimonials", JSON.stringify(testimonialData));
+            alert("¡Gracias por compartir tu experiencia! 🤩");
+            swiper.update();
+        } else {
+            alert("Por favor, ingresa todos los datos para añadir tu testimonio. 😔");
+        }
+    }
+
+    addTestimonialBtn.addEventListener("click", addTestimonial);
+
+    window.addEventListener("load", () => {
+        const storedTestimonials = JSON.parse(localStorage.getItem("testimonials")) || [];
+        storedTestimonials.forEach(testimonial => {
+            const testimonialElement = createTestimonialElement(testimonial);
+            testimonialContainer.appendChild(testimonialElement);
+        });
+        swiper.update();
+        highlightActiveSection();
+    });
+
+    contactForm.addEventListener("submit", (event) => {
+        alert("¡Mensaje enviado! Te contactaré a la brevedad. 🚀");
+    });
+
+    // Cargar anuncios al final
+    (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    <!-- Script de Google Ads -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8324949146488616" crossorigin="anonymous"></script>
 </body>
 </html>
