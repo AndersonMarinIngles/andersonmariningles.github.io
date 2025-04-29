@@ -183,6 +183,28 @@
             font-weight: bold;
         }
 
+        /* Estilos para el carrusel de inicio */
+        .swiper-container-hero {
+            width: 100%;
+            max-width: 1200px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+        }
+        .swiper-pagination-hero {
+            bottom: 10px !important;
+        }
+        .swiper-button-next-hero,
+        .swiper-button-prev-hero {
+            color: #fff;
+        }
+
         /* Estilos para el pop-up */
         #reservation-modal {
             display: none;
@@ -230,6 +252,29 @@
         }
         #purchase-modal.active {
             display: flex;
+        }
+
+        /* Ajustes para espaciado profesional */
+        main section {
+            margin-bottom: 4rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .grid {
+            gap: 2rem;
+        }
+        .card {
+            padding: 2rem;
+        }
+        .text-center h2 {
+            margin-bottom: 2rem;
+        }
+        .text-center p {
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -328,41 +373,41 @@
                 <p class="text-gray-300">Precio: $10 USD</p>
                 <p class="text-gray-300">Serás redirigido a PayPal para completar tu compra. Una vez confirmado el pago, recibirás un enlace de descarga.</p>
                 <!-- Enlace de PayPal (reemplaza con tu enlace real) -->
-                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jhon.marin524@pascualbravo.edu.co&amount=10&currency_code=USD&item_name=Guía%20Completa%20para%20Hablar%20Inglés%20en%2030%20Días" target="_blank" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center" id="paypal-link">Pagar con PayPal 🚀</a>
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jhon.marin524@pascualbravo.edu.co&amount=10¤cy_code=USD&item_name=Guía%20Completa%20para%20Hablar%20Inglés%20en%2030%20Días" target="_blank" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center" id="paypal-link">Pagar con PayPal 🚀</a>
             </form>
         </div>
     </div>
 
-    <main class="container mx-auto py-10 px-4 sm:px-6 lg:px-8 space-y-12">
+    <main class="container mx-auto py-12 px-4 sm:px-6 lg:px-8 space-y-16">
         <section id="inicio" class="text-center">
             <div class="swiper-container-hero">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Personas estudiando inglés con libros y cuadernos" class="rounded-lg shadow-lg w-full max-w-3xl" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Personas estudiando inglés con libros y cuadernos" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Profesor enseñando inglés a un grupo de estudiantes" class="rounded-lg shadow-lg w-full max-w-3xl" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Profesor enseñando inglés a un grupo de estudiantes" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1596495717824-620a727f0a1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante joven leyendo un libro de inglés" class="rounded-lg shadow-lg w-full max-w-3xl" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1596495717824-620a727f0a1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante joven leyendo un libro de inglés" loading="lazy">
                     </div>
                 </div>
+                <div class="swiper-pagination-hero"></div>
                 <div class="swiper-button-next-hero"></div>
                 <div class="swiper-button-prev-hero"></div>
-                <div class="swiper-pagination-hero"></div>
             </div>
-            <h2 class="text-4xl sm:text-5xl font-semibold google-name mt-8">
+            <h2 class="text-4xl sm:text-5xl font-semibold google-name mt-10">
                 Aprende Inglés Conversacional con Anderson Marín
             </h2>
             <p class="text-xl sm:text-2xl text-gray-300 mt-4">¡Habla Inglés con Confianza y Facilidad! 🚀</p>
-            <p class="text-lg text-gray-300 mt-6 mb-8 sm:mb-10 max-w-2xl mx-auto">
+            <p class="text-lg text-gray-300 mt-6 mb-8 max-w-2xl mx-auto">
                 Aprende inglés conversacional con un experto C2 que explica de forma clara y utiliza técnicas mnemotécnicas que realmente funcionan, ¡incluso para niños! 🤩
             </p>
-            <button id="open-modal-btn" class="btn-hero mt-8 sm:mt-10 inline-block" aria-label="Abrir formulario para reservar clase gratuita">¡Reserva tu clase de prueba gratuita! 🥳</button>
+            <button id="open-modal-btn" class="btn-hero mt-8 inline-block" aria-label="Abrir formulario para reservar clase gratuita">¡Reserva tu clase de prueba gratuita! 🥳</button>
             <p class="text-yellow-400 mt-4">¡Plazas limitadas para este mes!</p>
         </section>
 
-        <section id="sobre-mi" class="bg-gray-800 rounded-lg shadow-lg py-10 px-4 sm:px-6 lg:px-8 card">
+        <section id="sobre-mi" class="bg-gray-800 rounded-lg shadow-lg py-12 px-6 lg:px-8 card">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                     <h2 class="text-4xl sm:text-5xl font-semibold google-name flex items-center">
@@ -383,7 +428,7 @@
                     <p class="text-gray-300 mt-2 text-sm">[Reemplaza esta imagen con una foto tuya real para conectar con tu audiencia]</p>
                 </div>
             </div>
-            <div class="mt-8">
+            <div class="mt-10">
                 <h3 class="text-2xl sm:text-3xl font-semibold google-name">Por Qué Elegirme</h3>
                 <p class="text-gray-300 mt-4">
                     Mi método está diseñado para resultados reales: combino estrategias probadas con un enfoque personalizado que se adapta a tus necesidades. Ya sea que estés empezando desde cero o buscando perfeccionar tu fluidez, te guiaré paso a paso hacia el éxito con paciencia, entusiasmo y un toque de creatividad. 🧠
@@ -395,20 +440,20 @@
                     ¡Empieza hoy con una clase gratuita! 🚀
                 </a>
             </div>
-            <div class="mt-8">
+            <div class="mt-10">
                 <h3 class="text-2xl sm:text-3xl font-semibold google-name">Resultados que Transforman</h3>
                 <p class="text-gray-300 mt-4">
                     Mis estudiantes han logrado hablar inglés con confianza en situaciones cotidianas y profesionales. Desde niños que ahora cantan canciones en inglés hasta adultos que han conseguido mejores oportunidades laborales, mi método ha ayudado a transformar vidas a través del idioma.
                 </p>
             </div>
-            <div class="mt-8 flex justify-center">
+            <div class="mt-10 flex justify-center">
                 <!-- Placeholder para insignias -->
                 <p class="text-gray-300">[Añade aquí una insignia de tu certificación C2 o premios]</p>
             </div>
         </section>
 
-        <section id="servicios" class="bg-gray-900 rounded-lg shadow-lg py-10 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-8 flex justify-center items-center">
+        <section id="servicios" class="bg-gray-900 rounded-lg shadow-lg py-12 px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
                 <i class="material-icons mr-2 text-4xl">school</i>Mis Servicios
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
@@ -446,7 +491,7 @@
                 </div>
                 <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
                     <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Talleres Intensivos de Pronunciación</h3>
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante practicando pronunciación en inglés con un micrófono" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1593698054469-2ad2187efbb7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante practicando pronunciación en inglés frente a un espejo" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
                     <p class="text-gray-300 mb-4">
                         Un taller práctico y enfocado en mejorar tu pronunciación en inglés.
                     </p>
@@ -461,15 +506,15 @@
                     </a>
                 </div>
             </div>
-            <div class="text-center mt-8">
+            <div class="text-center mt-10">
                 <a href="#contacto" class="btn-blue inline-block text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
                     ¡Explora todos mis servicios! 🚀
                 </a>
             </div>
         </section>
 
-        <section id="blog" class="bg-gray-800 rounded-lg shadow-lg py-10 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-8 flex justify-center items-center">
+        <section id="blog" class="bg-gray-800 rounded-lg shadow-lg py-12 px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
                 <i class="material-icons mr-2 text-4xl">article</i>Blog
             </h2>
             <div class="space-y-8">
@@ -500,15 +545,15 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-8">
+            <div class="text-center mt-10">
                 <a href="#contacto" class="btn-blue inline-block text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
                     ¡Contáctame para más consejos! 🚀
                 </a>
             </div>
         </section>
 
-        <section id="testimonios" class="bg-gray-800 rounded-lg shadow-lg py-10 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-8 flex justify-center items-center">
+        <section id="testimonios" class="bg-gray-800 rounded-lg shadow-lg py-12 px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
                 <i class="material-icons mr-2 text-4xl">forum</i>Testimonios
             </h2>
             <div class="swiper-container">
@@ -530,13 +575,13 @@
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
-            <button id="add-testimonial-btn" class="block mx-auto mt-8 btn-blue font-semibold py-3 px-6 rounded-full transition duration-300 text-lg shadow-md">
+            <button id="add-testimonial-btn" class="block mx-auto mt-10 btn-blue font-semibold py-3 px-6 rounded-full transition duration-300 text-lg shadow-md">
                 ¡Comparte tu experiencia! 🤩
             </button>
         </section>
 
-        <section id="contacto" class="bg-gray-900 rounded-lg shadow-lg py-10 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-8 flex justify-center items-center">
+        <section id="contacto" class="bg-gray-900 rounded-lg shadow-lg py-12 px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
                 <i class="material-icons mr-2 text-4xl">mail</i>Contacto
             </h2>
             <div class="grid md:grid-cols-2 gap-8">
@@ -599,15 +644,15 @@
             </div>
         </section>
 
-        <section id="productos" class="bg-gray-800 rounded-lg shadow-lg py-10 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-8 flex justify-center items-center">
+        <section id="productos" class="bg-gray-800 rounded-lg shadow-lg py-12 px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl font-semibold google-name text-center mb-10 flex justify-center items-center">
                 <i class="material-icons mr-2 text-4xl">store</i>Productos Digitales
             </h2>
             <div class="text-center">
                 <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">
                     Guía Completa para Hablar Inglés en 30 Días
                 </h3>
-                <p class="text-gray-300 mb-4">
+                <p class="text-gray-300 mb-4 max-w-2xl mx-auto">
                     Una guía práctica con ejercicios, frases útiles y técnicas mnemotécnicas para que hagas un gran progreso en solo un mes.
                 </p>
                 <p class="text-yellow-400 font-semibold mb-4">Precio: $10 USD</p>
@@ -624,7 +669,7 @@
         ¡Reserva Ahora! 🚀
     </a>
 
-    <footer class="bg-gray-900 text-white py-4 text-center rounded-t-lg shadow-md">
+    <footer class="bg-gray-900 text-white py-6 text-center rounded-t-lg shadow-md">
         <p>© 2023 Aprende Inglés con Anderson Marín. Todos los derechos reservados. 🤓</p>
         <div class="flex justify-center space-x-4 mt-2">
             <a href="https://facebook.com/tu-perfil" target="_blank" class="text-blue-400 hover:text-blue-600">
