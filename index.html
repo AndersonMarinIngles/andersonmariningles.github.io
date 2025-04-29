@@ -8,7 +8,7 @@
     <meta name="keywords" content="clases de inglés online, aprender inglés conversacional, profesor de inglés C2, inglés para niños, talleres de pronunciación">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Swiper.js para el carrusel de testimonios -->
+    <!-- Swiper.js para los carruseles -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- Tailwind CSS (se recomienda subir una versión minificada a tu repositorio) -->
     <!-- Descarga Tailwind CSS minificado desde https://unpkg.com/tailwindcss/dist/tailwind.min.css y súbelo como tailwind.min.css -->
@@ -62,7 +62,7 @@
         }
 
         .btn-hero {
-            background: linear-gradient(90deg, #FF6F61, #FFD700); /* Gradiente más vibrante */
+            background: linear-gradient(90deg, #FF6F61, #FFD700);
             color: white;
             padding: 1.5rem 4rem;
             border-radius: 0.75rem;
@@ -111,7 +111,7 @@
             border: 1px solid #4a5568;
         }
         nav a:hover {
-            color: #FF6F61; /* Color más vibrante para hover */
+            color: #FF6F61;
         }
 
         /* Estilos para anuncios */
@@ -124,7 +124,7 @@
             margin-top: 20px;
             text-align: center;
             max-width: 160px;
-            opacity: 0.8; /* Menos intrusivo */
+            opacity: 0.8;
         }
 
         /* Estilos para el menú hamburguesa */
@@ -214,6 +214,23 @@
             cursor: pointer;
             color: #fff;
         }
+
+        /* Estilos para el pop-up de compra */
+        #purchase-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+        #purchase-modal.active {
+            display: flex;
+        }
     </style>
 </head>
 <body class="dark-mode">
@@ -294,16 +311,45 @@
         </div>
     </div>
 
+    <!-- Pop-up para compra del producto digital -->
+    <div id="purchase-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-purchase-modal-btn"><i class="material-icons">close</i></span>
+            <h2 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Compra tu Guía Digital</h2>
+            <form id="purchase-form" class="space-y-4">
+                <div>
+                    <label for="purchase-name" class="block text-gray-300 text-sm font-bold mb-2">Nombre:</label>
+                    <input type="text" id="purchase-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div>
+                    <label for="purchase-email" class="block text-gray-300 text-sm font-bold mb-2">Correo Electrónico:</label>
+                    <input type="email" id="purchase-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-300 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <p class="text-gray-300">Precio: $10 USD</p>
+                <p class="text-gray-300">Serás redirigido a PayPal para completar tu compra. Una vez confirmado el pago, recibirás un enlace de descarga.</p>
+                <!-- Enlace de PayPal (reemplaza con tu enlace real) -->
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=jhon.marin524@pascualbravo.edu.co&amount=10&currency_code=USD&item_name=Guía%20Completa%20para%20Hablar%20Inglés%20en%2030%20Días" target="_blank" class="btn-blue font-semibold py-2 px-4 rounded-full transition duration-300 inline-block text-center" id="paypal-link">Pagar con PayPal 🚀</a>
+            </form>
+        </div>
+    </div>
+
     <main class="container mx-auto py-10 px-4 sm:px-6 lg:px-8 space-y-12">
         <section id="inicio" class="text-center">
-            <div class="flex justify-center">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" alt="Estudiantes aprendiendo inglés conversacional online" class="rounded-lg shadow-lg w-full max-w-3xl" loading="lazy">
-            </div>
-            <!-- Placeholder para un video introductorio -->
-            <div class="mt-6">
-                <!-- Añade aquí tu video de YouTube o Vimeo -->
-                <!-- Ejemplo: <iframe src="https://www.youtube.com/embed/TU-VIDEO-ID" frameborder="0" allowfullscreen class="w-full max-w-3xl h-64 rounded-lg"></iframe> -->
-                <p class="text-gray-300">[Espacio para un video introductorio: ¡Preséntate y explica tu método en 30 segundos!]</p>
+            <div class="swiper-container-hero">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Personas estudiando inglés con libros y cuadernos" class="rounded-lg shadow-lg w-full max-w-3xl" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Profesor enseñando inglés a un grupo de estudiantes" class="rounded-lg shadow-lg w-full max-w-3xl" loading="lazy">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1596495717824-620a727f0a1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante joven leyendo un libro de inglés" class="rounded-lg shadow-lg w-full max-w-3xl" loading="lazy">
+                    </div>
+                </div>
+                <div class="swiper-button-next-hero"></div>
+                <div class="swiper-button-prev-hero"></div>
+                <div class="swiper-pagination-hero"></div>
             </div>
             <h2 class="text-4xl sm:text-5xl font-semibold google-name mt-8">
                 Aprende Inglés Conversacional con Anderson Marín
@@ -333,7 +379,7 @@
                     </p>
                 </div>
                 <div>
-                    <img src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Anderson Marín enseñando inglés online" class="rounded-lg shadow-md w-full" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Profesor Anderson Marín explicando inglés en una pizarra" class="rounded-lg shadow-md w-full" loading="lazy">
                     <p class="text-gray-300 mt-2 text-sm">[Reemplaza esta imagen con una foto tuya real para conectar con tu audiencia]</p>
                 </div>
             </div>
@@ -368,7 +414,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
                     <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Individuales Online</h3>
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Clase individual de inglés online con Anderson Marín" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1616763355548-1b606a478139?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante en una videollamada aprendiendo inglés con Anderson Marín" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
                     <p class="text-gray-300 mb-4">
                         Aprende a tu propio ritmo con lecciones personalizadas adaptadas a tus necesidades y objetivos específicos.
                     </p>
@@ -384,7 +430,7 @@
                 </div>
                 <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
                     <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Grupales Online</h3>
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Clase grupal de inglés online para mejorar fluidez conversacional" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Grupo de estudiantes practicando inglés conversacional online" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
                     <p class="text-gray-300 mb-4">
                         Aprende y practica inglés con otros estudiantes en un ambiente colaborativo y motivador. Ideal para mejorar tu fluidez conversacional.
                     </p>
@@ -400,7 +446,7 @@
                 </div>
                 <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
                     <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Talleres Intensivos de Pronunciación</h3>
-                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Taller intensivo de pronunciación en inglés con Anderson Marín" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante practicando pronunciación en inglés con un micrófono" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
                     <p class="text-gray-300 mb-4">
                         Un taller práctico y enfocado en mejorar tu pronunciación en inglés.
                     </p>
@@ -467,7 +513,6 @@
             </h2>
             <div class="swiper-container">
                 <div class="swiper-wrapper" id="testimonial-container">
-                    <!-- Testimonios de ejemplo -->
                     <div class="swiper-slide testimonial-card">
                         <p class="mb-4">"Las clases de Anderson son increíbles. Empecé desde cero y ahora puedo mantener conversaciones en inglés con confianza. ¡Lo recomiendo!"</p>
                         <p class="text-yellow-400 font-semibold">- María G., Bogotá</p>
@@ -566,9 +611,10 @@
                     Una guía práctica con ejercicios, frases útiles y técnicas mnemotécnicas para que hagas un gran progreso en solo un mes.
                 </p>
                 <p class="text-yellow-400 font-semibold mb-4">Precio: $10 USD</p>
-                <a href="https://www.paypal.com/paypalme/tu-perfil?amount=10" class="inline-block btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md" target="_blank">
+                <button id="open-purchase-modal-btn" class="inline-block btn-blue text-white font-semibold py-2 px-4 rounded-full transition duration-300 text-md">
                     Comprar Ahora 🚀
-                </a>
+                </button>
+                <p class="text-gray-300 mt-4">[Sube tu eBook en PDF a tu repositorio o a Google Drive y actualiza el enlace de descarga después de la compra]</p>
             </div>
         </section>
     </main>
@@ -609,6 +655,10 @@
     const closeModalBtn = document.getElementById("close-modal-btn");
     const reservationModal = document.getElementById("reservation-modal");
     const reservationForm = document.getElementById("reservation-form");
+    const openPurchaseModalBtn = document.getElementById("open-purchase-modal-btn");
+    const closePurchaseModalBtn = document.getElementById("close-purchase-modal-btn");
+    const purchaseModal = document.getElementById("purchase-modal");
+    const purchaseForm = document.getElementById("purchase-form");
 
     function toggleMobileMenu() {
         mobileMenu.classList.toggle("hidden");
@@ -679,6 +729,42 @@
         reservationForm.reset();
     });
 
+    // Pop-up para compra del producto digital
+    openPurchaseModalBtn.addEventListener("click", () => {
+        purchaseModal.classList.add("active");
+    });
+
+    closePurchaseModalBtn.addEventListener("click", () => {
+        purchaseModal.classList.remove("active");
+    });
+
+    purchaseForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const paypalLink = document.getElementById("paypal-link");
+        alert("Redirigiéndote a PayPal para completar tu compra. Una vez confirmado el pago, recibirás un enlace de descarga en tu correo.");
+        paypalLink.click();
+        purchaseModal.classList.remove("active");
+        purchaseForm.reset();
+    });
+
+    // Carrusel de imágenes en #inicio
+    const swiperHero = new Swiper('.swiper-container-hero', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination-hero',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next-hero',
+            prevEl: '.swiper-button-prev-hero',
+        },
+        slidesPerView: 1,
+        spaceBetween: 10,
+        autoplay: {
+            delay: 5000,
+        },
+    });
+
     // Carrusel de testimonios
     const swiper = new Swiper('.swiper-container', {
         loop: true,
@@ -720,7 +806,7 @@
             testimonialData.push(newTestimonial);
             localStorage.setItem("testimonials", JSON.stringify(testimonialData));
             alert("¡Gracias por compartir tu experiencia! 🤩");
-            swiper.update(); // Actualizar el carrusel
+            swiper.update();
         } else {
             alert("Por favor, ingresa todos los datos para añadir tu testimonio. 😔");
         }
