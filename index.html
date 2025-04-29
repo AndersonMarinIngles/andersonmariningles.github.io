@@ -10,9 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Swiper.js para los carruseles -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- Tailwind CSS (se recomienda subir una versión minificada a tu repositorio) -->
-    <!-- Descarga Tailwind CSS minificado desde https://unpkg.com/tailwindcss/dist/tailwind.min.css y súbelo como tailwind.min.css -->
-    <!-- <link rel="stylesheet" href="tailwind.min.css"> -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -205,6 +203,12 @@
             color: #fff;
         }
 
+        /* Estilos para el carrusel de testimonios */
+        .swiper-button-next-testimonials,
+        .swiper-button-prev-testimonials {
+            color: #fff;
+        }
+
         /* Estilos para el pop-up */
         #reservation-modal {
             display: none;
@@ -392,19 +396,19 @@
                         <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante escribiendo notas en inglés mientras estudia" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1596495717824-620a727f0a1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante joven leyendo un libro de inglés" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante joven apuntando a una pizarra con palabras en inglés" loading="lazy">
                     </div>
                     <div class="swiper-slide">
                         <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiantes practicando inglés en una clase grupal" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1611224923851-80d203d86d24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Persona aprendiendo inglés con auriculares en clase online" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante escribiendo en un cuaderno durante una clase de inglés" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Niño aprendiendo inglés con flashcards" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Grupo de estudiantes practicando conversación en inglés" loading="lazy">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Profesor escribiendo en una pizarra con palabras en inglés" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4ca2f1c1b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Profesor explicando gramática en inglés en una pizarra" loading="lazy">
                     </div>
                     <div class="swiper-slide">
                         <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=100" alt="Estudiante practicando conversación en inglés con un compañero" loading="lazy">
@@ -480,7 +484,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
                     <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Clases Individuales Online</h3>
-                    <img src="https://images.unsplash.com/photo-1616763355548-1b606a478139?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante en una videollamada aprendiendo inglés con Anderson Marín" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante en una videollamada aprendiendo inglés con Anderson Marín" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
                     <p class="text-gray-300 mb-4">
                         Aprende a tu propio ritmo con lecciones personalizadas adaptadas a tus necesidades y objetivos específicos.
                     </p>
@@ -512,7 +516,7 @@
                 </div>
                 <div class="bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 card">
                     <h3 class="text-2xl sm:text-3xl font-semibold google-name mb-4">Talleres Intensivos de Pronunciación</h3>
-                    <img src="https://images.unsplash.com/photo-1593698054469-2ad2187efbb7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Estudiante practicando pronunciación en inglés frente a un espejo" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=100" alt="Persona practicando pronunciación frente a un micrófono" class="rounded-lg shadow-md w-full mb-4" loading="lazy">
                     <p class="text-gray-300 mb-4">
                         Un taller práctico y enfocado en mejorar tu pronunciación en inglés.
                     </p>
@@ -592,8 +596,8 @@
                         <p class="text-yellow-400 font-semibold">- Laura S., Cali</p>
                     </div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next-testimonials"></div>
+                <div class="swiper-button-prev-testimonials"></div>
                 <div class="swiper-pagination"></div>
             </div>
             <button id="add-testimonial-btn" class="block mx-auto mt-10 btn-blue font-semibold py-3 px-6 rounded-full transition duration-300 text-lg shadow-md">
@@ -839,8 +843,8 @@
             clickable: true,
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next-testimonials',
+            prevEl: '.swiper-button-prev-testimonials',
         },
         slidesPerView: 1,
         spaceBetween: 10,
